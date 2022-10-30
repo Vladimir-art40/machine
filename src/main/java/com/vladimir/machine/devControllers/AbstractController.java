@@ -1,5 +1,7 @@
 package com.vladimir.machine.devControllers;
 
+import lombok.SneakyThrows;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,12 +43,21 @@ public class AbstractController {
     }
 
 
-    public void trustSendCommand(String command){
+    @SneakyThrows
+    public void trustSendCommand(String command) {
         System.out.println("[" + Calendar.getInstance().getTime() + "] " +
                 "(dev: " + address + ") Sending: " + command);
         ok = false;
         out.print(command);
         out.flush();
-        while (!ok) Thread.onSpinWait();
+        int w = 0;
+        while (!ok) {
+            w++;
+            Thread.sleep(10);
+            if(w == 2000){
+                break;
+            }
+        }
+        ok = true;
     }
 }

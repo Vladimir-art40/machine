@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <title>Ручной режим</title>
+</head>
+<body>
+<div id="container">
+    <div id="panel">
+        <h1>Моторы:</h1>
+        <div class="panel-item">
+            <button onclick="send('/manual/motors/park')">Парковка</button>
+            <button onclick="send('/manual/motors/people')">Люди</button>
+            <button onclick="send('/manual/motors/police')">Полиция</button>
+            <button onclick="send('/manual/motors/samosval')">Самосвал</button>
+            <button onclick="send('/manual/motors/startFan')">Запустить вентилятор</button>
+            <button onclick="send('/manual/motors/stopFan')">Остановить вентилятор</button>
+        </div>
+
+        <h1>Свет:</h1>
+        <div class="panel-item">
+            <button onclick="send('/manual/light/lightOn')">Включить освещение улиц</button>
+            <button onclick="send('/manual/light/lightOff')">Отключить освещение улиц</button>
+            <button onclick="send('/manual/light/flyLight')">Дрон перелёт</button>
+            <button onclick="send('/manual/light/airLight')">Дрон воздух</button>
+            <button onclick="send('/manual/light/airBadLight')">Дрон плохой воздух</button>
+            <button onclick="send('/manual/light/policeLight')">Дрон полиция</button>
+            <button onclick="send('/manual/light/ploshadkaLight')">Дрон осмотр площадки</button>
+            <button onclick="send('/manual/light/rubbishLeftLight')">Дрон осмотр левой мусорки</button>
+            <button onclick="send('/manual/light/rubbishRightLight')">Дрон осмотр правой мусорки</button>
+            <button onclick="send('/manual/light/rubbishFoundLight')">Дрон нашёл мусор</button>
+        </div>
+
+        <h1>Верх:</h1>
+        <div class="panel-item">
+            <button onclick="send('/manual/drone/park')">Парковка</button>
+            <button onclick="send('/manual/drone/moveToPloshadka')">Полетели к площадке</button>
+            <button onclick="send('/manual/drone/moveToAir')">Полетели проверять воздух</button>
+            <button onclick="send('/manual/drone/moveToRubbishLeft')">Полетели проверять левую мусорку</button>
+            <button onclick="send('/manual/drone/moveToRubbishRight')">Полетели проверять правую мусорку</button>
+            <button onclick="send('/manual/drone/freeFly?pointsOnSky=1')">Полетели случайно</button>
+            <button onclick="send('/manual/drone/freeCheck?pointsOnGround=1')">Полетели случайно около земли</button>
+        </div>
+
+        <h1>Скрипты:</h1>
+        <div class="panel-item">
+            <button onclick="send('/script/aPolice?bad=true')">Полиция</button>
+            <button onclick="send('/script/aPeople')">Люди</button>
+            <button onclick="send('/script/aRubbish?c=left&find=true')">Мусор</button>
+            <button onclick="send('/script/aAir?state=false')">Воздух</button>
+            <button onclick="send('/script/randomFly')">Случайный полёт в воздухе</button>
+            <button onclick="send('/script/randomFlyOnGround')">Случайный полёт на земле</button>
+        </div>
+
+        <h1>Автоматика:</h1>
+        <div class="panel-item">
+            <button onclick="send('/manual/auto/enable')">Старт</button>
+            <button onclick="send('/manual/auto/disable')">Стоп</button>
+        </div>
+    </div>
+    <div id="black" style="position: absolute; top: -100000px;">
+        <h2 style="color: white;font-size: 6rem;">Выполняется...</h2>
+    </div>
+</div>
+</body>
+</html>

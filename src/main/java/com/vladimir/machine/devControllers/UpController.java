@@ -18,14 +18,28 @@ public class UpController extends AbstractController {
     }
 
     public void moveToAir(){
-        move(18000, 26000, 1);
+        move(18000, 24000, 1);
     }
 
     public void moveToRubbishLeft(){
+        move(18000, 22000, 1);
         move(25000, 22000, -1000);
     }
 
     public void moveToRubbishRight(){
+        move(1, 22000, 1);
         move(1, 22000, -1000);
+    }
+
+    public void moveToRandomOnGround(){
+        move((int)(Math.random() * 16000 + 1000),
+                (int)(Math.random() * 16000 + 1000),
+                (int)(Math.random() * 1000 + 1));
+    }
+
+    public void moveToRandomOnAir(){
+        move((int)(Math.random() * 23000 + 1000),
+                (int)(Math.random() * 24000 + 1000),
+                (int)(Math.random() * 2000 + 3000));
     }
 }
